@@ -5,14 +5,20 @@ class ReviewsController < ApplicationController
   end
 
   def create
-    @review = Review.new(params[:id])
+    @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
-    @experience = Experience.find(@booking.experience_id)
     @review.booking = @booking
+    @review.user = current_user
+    # @experience = Experience.find(@booking.experience_id)
+    # @review.experience = @experience
     if @review.save
-      redirect_to experience_path(booking.experience.id)
+      redirect_to user_dashboard_path
     else
       render :new
     end
+  end
+  private
+  def review_params
+    params.require(:review).permit(:content)
   end
 end

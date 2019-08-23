@@ -10,7 +10,6 @@
   <%= f.button :submit, class: 'btn btn-primary' %>
   <% end %>
 
-  <p><% @reviews.each do |review| %></p>
-  <p><%= review.content %></p>
-  <% end %>
-
+<p><% @experience.reviews.each do |review| %></p>
+<p><%= review.content %></p>
+<% end %>
