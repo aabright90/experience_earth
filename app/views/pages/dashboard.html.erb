@@ -1,0 +1,13 @@
+<%= @user.username %>
+<%= @user.email %>
+
+<% @bookings.each do |booking| %>
+  <h6><%= booking.experience.title %></h6>
+  <h6><%= booking.experience.experience_dates %></h6>
+  <h6><%= booking.experience.description %></h6>
+  <h6><%= booking.experience.price %></h6>
+  <h6><%= booking.experience.contact %></h6>
+  <h6><%= link_to 'Look at this Experience', experience_path(booking.experience.id), class: 'btn btn-primary' %></h6>
+  <h6><%= link_to 'Leave Review', new_booking_review_path(booking), class: 'btn btn-primary' %></h6>
+  <h6><%= link_to 'Cancel this Booking', booking_path(booking), class: 'btn btn-sm btn-danger', method: :delete %></h6>
+<% end %>

@@ -1,0 +1,16 @@
+  <p><%= @experience.title %></p>
+  <p><%= @experience.contact %></p>
+  <p><%= @experience.description %></p>
+  <p><%= @experience.location %></p>
+  <p>$ <%= @experience.price %>.00</p>
+  <p><%= @experience.experience_dates %></p>
+  <p><%= link_to 'Back to Experiences', experiences_path, class: "btn btn-primary"  %></p>
+
+  <%= simple_form_for [@experience, @booking] do |f| %>
+  <%= f.button :submit, class: 'btn btn-primary' %>
+  <% end %>
+
+  <p><% @reviews.each do |review| %></p>
+  <p><%= review.content %></p>
+  <% end %>
+

@@ -1,0 +1,9 @@
+<% @experiences.each do |experience| %>
+  <p><%= experience.title %></p>
+  <p><%= experience.contact %></p>
+  <p><%= experience.description %></p>
+  <p><%= experience.location %></p>
+  <p>$ <%= experience.price %>.00</p>
+  <p><%= experience.experience_dates %></p>
+  <p><%= link_to 'Look at this experience', experience_path(experience.id), class: 'btn btn-primary' %></p>
+<% end %>
